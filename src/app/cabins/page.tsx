@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>cabin page</div>;
+  return <div className='font-bold'>cabin page</div>;
 }

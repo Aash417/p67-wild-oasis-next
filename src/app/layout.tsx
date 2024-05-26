@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
-import './globals.css';
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className='bg-primary-950 text-primary-100 min-h-screen'>
 				<header>
 					<Logo />
 					<Navigation />
