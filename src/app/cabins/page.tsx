@@ -3,6 +3,8 @@ import Spinner from '@/components/Spinner';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
+// export const revalidate = 3600;
+
 export const metadata: Metadata = {
 	title: 'cabins',
 };
