@@ -89,7 +89,7 @@ export async function getBookings(guestId: any) {
 }
 
 export async function getBookedDatesByCabinId(cabinId: any) {
-	let today = new Date();
+	let today: string | Date = new Date();
 	today.setUTCHours(0, 0, 0, 0);
 	today = today.toISOString();
 
