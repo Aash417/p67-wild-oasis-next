@@ -36,7 +36,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
 				mode='range'
 				onSelect={(range) => {
 					setRange(range);
-					console.log(range);
+					// console.log(range);
 				}}
 				selected={range}
 				min={minBookingLength + 1}
