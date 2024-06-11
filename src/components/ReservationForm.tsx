@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useReservation } from './ReservationContext';
 
-export default function ReservationForm({ cabin, user }) {
+export default function ReservationForm({ cabin, user }: { cabin: any; user: any }) {
 	const { range } = useReservation();
 	const { maxCapacity } = cabin;
 

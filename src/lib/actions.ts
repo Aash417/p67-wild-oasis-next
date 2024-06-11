@@ -14,7 +14,7 @@ export async function signOutAction() {
 	await signOut({ redirectTo: '/' });
 }
 
-export async function UpdateProfile(formData) {
+export async function UpdateProfile(formData: any) {
 	const session = await auth();
 	if (!session) throw new Error('You must be logged in.');
 
@@ -56,7 +56,7 @@ export async function deleteReservation(bookingId: number) {
 	revalidatePath('/account/reservations');
 }
 
-export async function updateBooking(formData) {
+export async function updateBooking(formData: any) {
 	const bookingId = Number(formData.get('bookingId'));
 	const session = await auth();
 	if (!session) throw new Error('You must be logged in.');

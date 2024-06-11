@@ -5,12 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import DeleteReservation from './DeleteReservation';
 
-export const formatDistanceFromNow = (dateStr) =>
+export const formatDistanceFromNow = (dateStr: any) =>
 	formatDistance(parseISO(dateStr), new Date(), {
 		addSuffix: true,
 	}).replace('about ', '');
 
-function ReservationCard({ booking, onDelete }) {
+function ReservationCard({
+	booking,
+	onDelete,
+}: {
+	booking: any;
+	onDelete: (bookingId: number) => Promise<void>;
+}) {
 	const {
 		id,
 		guestId,
