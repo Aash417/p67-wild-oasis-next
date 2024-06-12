@@ -14,6 +14,35 @@ export async function signOutAction() {
 	await signOut({ redirectTo: '/' });
 }
 
+export async function createBooking(bookingData: any, formData: any) {
+	const session = await auth();
+	if (!session) throw new Error('You must be logged in.');
+
+	const newBooking = {
+		...bookingData,
+		guestId: session?.user?.guestId,
+		numGuests: Number(formData.get('numGuests')),
+		observations: formData.get('observations'),
+		extrasPrice: 0,
+		totalPrice: bookingData.cabinPrice,
+		isPaid: false,
+		hasBreakfast: false,
+		status: 'unconfirmed',
+	};
+
+	console.log('newBooking :', newBooking);
+	const { error } = await supabase
+		.from('bookings')
+		.insert([newBooking])
+		// So that the newly created object gets returned!
+		.select()
+		.single();
+
+	if (error) throw new Error('Booking could not be created');
+
+	revalidatePath(`/cabin/${bookingData.cabinId}`);
+}
+
 export async function UpdateProfile(formData: any) {
 	const session = await auth();
 	if (!session) throw new Error('You must be logged in.');
